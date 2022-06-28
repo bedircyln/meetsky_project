@@ -18,3 +18,12 @@ Scenario: User can login with valid credentials
   And   user enters valid password
   And   user clicks Log In button
   Then  user should see the Wrong username or password warning
+
+
+  Scenario: User can not login with invalid password
+  Given user goes to log in page
+  When  user on Meetsky LogIn page
+  And   user enters valid username
+  And   user enters invalid password
+  And   user clicks Log In button
+  Then  user should see the Wrong username or password warning

@@ -48,7 +48,15 @@ public class MeetskyStepDefinitions {
     @Then("user should see the Wrong username or password warning")
     public void user_should_see_the_wrong_username_or_password_warning() {
         WebElement invalidUsernameOrPasswordMessage = Driver.getDriver().findElement(By.xpath("//p[contains(text(),'Wrong username or password.')]"));
-        invalidUsernameOrPasswordMessage.isDisplayed();
+        Assert.assertTrue(invalidUsernameOrPasswordMessage.isDisplayed());
+    }
+
+
+    @When("user enters invalid password")
+    public void user_enters_invalid_password() {
+        String passwordInvalid = "Invalid_Password";
+        WebElement passwordInput = Driver.getDriver().findElement(By.id("password"));
+        passwordInput.sendKeys(passwordInvalid);
     }
 
 
