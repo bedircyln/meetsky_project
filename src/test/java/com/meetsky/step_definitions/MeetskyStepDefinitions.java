@@ -117,17 +117,16 @@ public class MeetskyStepDefinitions {
        Assert.assertTrue(forgotlink.isDisplayed());
     }
     @When("user clicks the Forgot password link")
-    public void user_clicks_the_forgot_password_link() {
+    public void user_clicks_the_forgot_password_link() throws InterruptedException {
         Driver.getDriver().findElement(By.id("lost-password")).click();
+        Thread.sleep(3000);
     }
 
     @Then("user can see the Reset Password button")
     public void user_can_see_the_reset_password_button(){
-        //BURASI HATA VERİYOR AMA VERMEMESİ LAZIM
-        //WebElement resetButton = Driver.getDriver().findElement(By.id("reset-password-submit"));
-       // boolean isResetButtonDisplayed = resetButton.isDisplayed();
-        //Assert.assertEquals(isResetButtonDisplayed,true);
-        System.out.println("Pass this step");
+        WebElement resetButton = Driver.getDriver().findElement(By.id("reset-password-submit"));
+        boolean isResetButtonDisplayed = resetButton.isDisplayed();
+        Assert.assertEquals(isResetButtonDisplayed,true);
 
 
     }
