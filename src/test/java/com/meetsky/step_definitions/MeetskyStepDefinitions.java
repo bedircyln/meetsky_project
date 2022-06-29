@@ -62,9 +62,71 @@ public class MeetskyStepDefinitions {
 
     @Then("user should see the Please fill out this field message.")
     public void user_should_see_the_please_fill_out_this_field_message() {
-       //BURASI SIKINTI
+        WebElement passwordBox = Driver.getDriver().findElement(By.id("password"));
+        WebElement userBox = Driver.getDriver().findElement(By.id("user"));
+
+        String valiMessage = passwordBox.getAttribute("validationMessage") ;
+        Assert.assertEquals(valiMessage,"Please fill out this field");
+
+    }
+    @Then("user should see the Please fill out this field message on password input box")
+    public void user_should_see_the_please_fill_out_this_field_message_on_password_input_box() {
+        WebElement passwordBox = Driver.getDriver().findElement(By.id("password"));
+
+        String valiMessage = passwordBox.getAttribute("validationMessage") ;
+        Assert.assertEquals(valiMessage,"Please fill in this field.");
     }
 
+    @Then("user should see the Please fill out this field message on username input box")
+    public void user_should_see_the_please_fill_out_this_field_message_on_username_input_box() {
+        WebElement userBox = Driver.getDriver().findElement(By.id("user"));
+
+        String valiMessage = userBox.getAttribute("validationMessage") ;
+        Assert.assertEquals(valiMessage,"Please fill in this field.");
+    }
+
+    @Then("user should see the password as form of dots")
+    public void user_should_see_the_password_as_form_of_dots() {
+        WebElement passwordBox = Driver.getDriver().findElement(By.id("password"));
+
+        String isFormOfDots = passwordBox.getAttribute("type");
+        Assert.assertEquals(isFormOfDots,"password");
+    }
+
+
+    @When("user cliks the eye image to see the password explicitly")
+    public void user_cliks_the_eye_image_to_see_the_password_explicitly() {
+        Driver.getDriver().findElement(By.xpath("//body/div[1]/div[1]/main[1]/div[1]/div[1]/form[1]/fieldset[1]/p[2]/a[1]/img[1]")).click();
+    }
+
+    @Then("user should see the password explicitly")
+    public void user_should_see_the_password_explicitly() {
+        WebElement passwordBox = Driver.getDriver().findElement(By.id("password"));
+
+        String isFormOfDots = passwordBox.getAttribute("type");
+        Assert.assertEquals(isFormOfDots,"text");
+    }
+
+    @When("user can see the Forgot password? link")
+    public void user_can_see_the_forgot_password_link() {
+       WebElement forgotlink = Driver.getDriver().findElement(By.id("lost-password"));
+       Assert.assertTrue(forgotlink.isDisplayed());
+    }
+    @When("user clicks the Forgot password link")
+    public void user_clicks_the_forgot_password_link() {
+        Driver.getDriver().findElement(By.id("lost-password")).click();
+    }
+
+    @Then("user can see the Reset Password button")
+    public void user_can_see_the_reset_password_button() {
+
+        //BURASI SIKINTI
+    }
+
+    @Then("user can see the Username and Password placeholders as expected")
+    public void user_can_see_the_username_and_password_placeholders_as_expected() {
+
+    }
 
 
 
