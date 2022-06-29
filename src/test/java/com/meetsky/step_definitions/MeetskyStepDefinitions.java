@@ -4,6 +4,7 @@ import com.meetsky.utilities.Driver;
 import io.cucumber.java.en.*;
 import org.junit.Assert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 
 public class MeetskyStepDefinitions {
@@ -118,9 +119,14 @@ public class MeetskyStepDefinitions {
     }
 
     @Then("user can see the Reset Password button")
-    public void user_can_see_the_reset_password_button() {
+    public void user_can_see_the_reset_password_button(){
+        //BURASI HATA VERİYOR AMA VERMEMESİ LAZIM
+        WebElement resetButton = Driver.getDriver().findElement(By.id("reset-password-submit"));
+        boolean isResetButtonDisplayed = resetButton.isDisplayed();
 
-        //BURASI SIKINTI
+        Assert.assertEquals(isResetButtonDisplayed,true);
+
+
     }
 
     @Then("user can see the Username and Password placeholders as expected")

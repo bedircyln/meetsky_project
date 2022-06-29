@@ -91,6 +91,7 @@ Scenario: User can see the "Forgot password?" link on the login page and can see
   Then  user can see the Reset Password button
 
 
+  @METSK-362
   Scenario:User can see valid placeholders on Username and Password fields
   Given user goes to log in page
   When  user on Meetsky LogIn page
