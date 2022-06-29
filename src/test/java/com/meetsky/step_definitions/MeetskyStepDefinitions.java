@@ -125,6 +125,17 @@ public class MeetskyStepDefinitions {
 
     @Then("user can see the Username and Password placeholders as expected")
     public void user_can_see_the_username_and_password_placeholders_as_expected() {
+        WebElement passwordBox = Driver.getDriver().findElement(By.id("password"));
+
+        String passwordPlaceholder = passwordBox.getAttribute("placeholder");
+        Assert.assertEquals(passwordPlaceholder,"Password");
+
+        WebElement userBox = Driver.getDriver().findElement(By.id("user"));
+
+        String usernamePlaceholder = userBox.getAttribute("placeholder") ;
+        Assert.assertEquals(usernamePlaceholder,"Username or email");
+
+
 
     }
 
