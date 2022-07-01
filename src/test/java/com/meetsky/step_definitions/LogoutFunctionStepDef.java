@@ -41,6 +41,23 @@ public class LogoutFunctionStepDef {
 
         Assert.assertEquals("Meetsky - QA",loginPageTitle);
     }
+    @When("User should go back to Log In page")
+    public void user_should_go_back_to_log_in_page() {
+       String loginPageTitle = Driver.getDriver().getTitle();
+
+        Assert.assertEquals("Meetsky - QA",loginPageTitle);
+    }
+
+    @When("User clicks the step back button")
+    public void user_clicks_the_step_back_button() {
+        Driver.getDriver().navigate().back();
+    }
+    @Then("User stays at Log In page")
+    public void user_stays_at_log_in_page() {
+        String loginPageTitle = Driver.getDriver().getTitle();
+
+        Assert.assertEquals("Meetsky - QA",loginPageTitle);
+    }
 
 
 
